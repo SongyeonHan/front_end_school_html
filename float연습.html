@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float연습</title>
+
+    <style>
+
+        header{
+            width: 900px;
+            height: 300px;
+        }
+
+        section{
+            /* 부모가 되는 요소의 높이값은 최대한 사용하지 않는게 좋다 자식크기를 나아가 ui를 유연하게 사용하기 위해서*/
+            /* height: 300px; */
+            /* overflow: hidden; */
+            /* display: inline-block; */
+        }
+
+        article{
+            width: 300px;
+            height: 300px;
+        }
+
+        footer{
+            width: 900px;
+            height: 300px;
+        }
+
+        section::after{
+            display: block;
+            content: '';
+            clear: both;
+        }
+        
+        .float-left{float: left;}
+        .pink{background-color: pink;}
+        .blue{background-color: lightblue;}
+        .yellow{background-color:lemonchiffon;}
+        .border{border: 1px solid black;}
+    </style>
+
+</head>
+<body>
+
+    <header class="pink"></header>
+    <section>
+        <article class="blue border float-left"></article>
+        <article class="blue border float-left"></article>
+        <article class="blue border float-left"></article>
+    </section>
+    <footer class="yellow"></footer>
+
+</body>
+</html>
