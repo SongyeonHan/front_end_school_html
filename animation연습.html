@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation 연습</title>
+    <style>
+
+        @keyframes 네모 {
+            0%{
+                transform: translate(0, 0) rotate(45deg);
+            }
+
+            15%{
+                transform: translate(300px, 0) rotate(45deg);
+            }
+
+            30%{
+                transform: translate(300px, 300px) rotate(45deg);
+            }
+
+            50%{
+                transform: translate(0px, 300px) rotate(45deg);
+            }
+
+            65%{
+                transform: translate(300px, 300px) rotate(45deg);
+            }
+
+            80%{
+                transform: translate(300px, 0) rotate(45deg);
+            }
+
+            100%{
+                transform: translate(0, 0) rotate(45deg);
+            }
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: relative;
+            margin: 300px auto;
+            animation: 네모 5s infinite;
+
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            border-radius: 50%;
+            background: pink;
+        }
+        .heart::before {
+            left: -50%;
+        }
+        .heart::after {
+            top: -50%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="heart"></div>
+</body>
+</html>
