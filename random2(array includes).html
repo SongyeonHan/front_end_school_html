@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <!-- 똑같은 숫자를 넣고 삭제하는 거 보다 똑같은 숫자가 나오면 안넣어주는게 더 빠른 방법이다..................... -->
+    <script>
+        function randomNum(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        // 번호 넣어줄 주머니
+        let lottoArr = [];
+        function lottoGenerator() {
+            while (lottoArr.length < 6) {
+                let result = randomNum(1, 46);
+                
+                // lottoArr에 result가 없다면 push!
+                if (!lottoArr.includes(result)) {
+                    lottoArr.push(result);
+                }
+            }
+            return lottoArr;
+        }
+
+        console.log(lottoGenerator());
+    </script>
+</body>
+</html>
