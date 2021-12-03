@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <style>
+
+        .square{
+            width: 300px;
+            height: 300px;
+            background-color : pink;
+            margin: 50px auto; 
+            transition: all .8s;
+        }
+
+        .yellow{
+            background-color: lemonchiffon;
+        }
+
+        .blue{
+            background-color: lightcyan;
+        }
+
+        .purple{
+            background-color: lavender;
+        }
+
+        .btn-wrap{
+            width: 300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="square"></div>
+
+    <!-- ul li로도 가능 -->
+    <div class="btn-wrap">
+        <button class="btn-yellow">노랗게</button>
+        <button class="btn-blue">파랗게</button>
+        <button class="btn-purple">보라로</button>
+    </div>
+
+    <script>
+
+        const square = document.querySelector('.square');
+        const btnYellow = document.querySelector('.btn-yellow');
+        const btnBlue = document.querySelector('.btn-blue');
+        const btnPurple = document.querySelector('.btn-purple');
+
+        let btnArr = [btnYellow, btnBlue, btnPurple];
+        btnArr.forEach((item) => {
+            item.addEventListener('click', () => {
+
+                square.classList.remove('yellow', 'blue', 'purple');
+
+                if (item.className === 'btn-yellow') {
+                    square.classList.add('yellow');
+                } else if (item.className === 'btn-blue') {
+                    square.classList.add('blue');
+                } else {
+                    square.classList.add('purple');
+                }
+                
+            })
+        })
+
+
+        // btnYellow.addEventListener('click', () => {
+        // square.classList.remove('yellow', 'blue', 'purple');
+        //     square.classList.add('yellow');
+        // })
+
+        // btnBlue.addEventListener('click', function(){
+        //     square.classList.remove('blue', 'yellow', 'purple');
+        //     square.classList.add('blue');
+        // })
+
+        // btnPurple.addEventListener('click', function(){
+        //     square.classList.remove('purple', 'yellow', 'blue');
+        //     square.classList.add('purple');
+        // })
+
+    </script>
+</body>
+</html>
