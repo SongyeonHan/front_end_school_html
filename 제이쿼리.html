@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            opacity: 0.3;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="one">jQuery 실습</h1>
+    <p>Hello</p>
+    <button class="btn1">클릭!</button>
+    <p class="실습">jQuery 실습을 하고 있습니다.</p>
+    <img>
+    <br>
+    <textarea name="메모장" id="메모장" cols="30" rows="10"></textarea>
+    <button class="btn2">메모장 내용 경고창으로 출력</button>
+
+    <div class="wrapper">
+        <h1 class="title">TITLE</h1>
+        <ul>
+            <li class="items">item 1</li>
+            <li class="items">item 2</li>
+            <li class="items">item 3</li>
+        </ul>
+    </div>
+    <ul class="ul2">
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+    </ul>
+
+    <div class="one blue">hello</div>
+    <div class="two blue">world</div>
+    <p class="blue">!</p>
+    <div class="three">hi</div>
+    <div class="three blue">hi</div>
+
+    <div class="box"></div>
+    <div class="box2">눌러봐요</div>
+
+    <script>
+        document.getElementById('one').innerHTML = '!!!';
+        $('#one').text('hello jQuery');
+        // $('p').hide();
+        $('.btn1').click(function(){
+            alert('클릭했네요?');
+        });
+        // $('.실습').text('<strong>실습</strong> 중 이에요!');
+        $('.실습').html('<strong>실습</strong>중 이에요!')
+        // 여러 줄로 css $().css().css().css().css().css().css().css();
+        $('.실습').css('color', 'red');
+        $('img').attr('src', 'a.jpg');
+        $('.btn2').click(function(){
+            let 메모장값 = $('#메모장').val();
+            $('#메모장').val('값을 입력하세요.');
+            alert(메모장값);
+        });
+
+        
+        /* 1. items 의 부모를 찾아 background-color를 파란색으로 바꿔주세요.
+        2. 2번째 items의 color 를 빨간색으로 바꿔주세요.
+        3. ul2 의 자식인 li 요소를 선택하여 1번부터 3번까지 color를 녹색으로 바꿔주세요.
+        4. ul2의 자식인 li 요소를 선택하여 7번부터 10번까지 color를 파란색, background-color를 빨간색으로 바꿔주세요. */
+
+        $(".items").parent().css('backgroundColor', 'blue');
+        $(".items").eq(1).css('color', 'red');
+        $('.ul2').children('li:lt(3)').css('color', 'green');
+        $('.ul2').children('li:gt(6)').css('color', 'blue');
+
+        $('.one, .two, p').removeClass('blue');
+        $('three').toggleClass('blue');
+
+        $('.box').fadeOut(3000).fadeIn(3000);
+        $(".box").click(function(){
+            $(this).stop();
+        });
+
+        
+        $(function(){
+            $(".box").click(function(){
+                $(this).hide();
+            });
+        })
+
+        $('.box2').click(function() {
+        $('.box2').animate({
+            width: '300px',
+            height: '300px',
+            opacity: 1,
+        }, 'slow');
+        });
+        $(".box2").mouseenter(function(){
+            alert("hi");
+        });
+        $(".box2").mouseleave(function(){
+            alert("bye");
+        });
+    </script>
+</body>
+</html>
